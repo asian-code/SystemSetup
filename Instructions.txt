@@ -1,0 +1,53 @@
+USB drive:
+    ComputerSetup.ps1
+    connectDomain.ps1
+    Instructions.txt
+    [Folder] DesktopToInstall- contains apps only for Destop [Bitdefender (Office-onPrem edition)]
+    [Folder] LabtopToInstall- contains apps only for labtop [Cisco AnyConnect, Bitdefender (labtop edition)]
+    [Folder] ToInstall- contains apps for all systems [Teams, Outlook,Office 365]
+
+---DESKTOP --------------------------------------------------------------------------------------------------------------------
+
+Instructions for Desktop setup:
+    1. Open Powershell as Admin
+    2. Run this command to enable powershell scripts: 
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+    3. Navigate to usb and run ComputerSetup.ps1 with command: .\ComputerSetup.ps1
+    4. Wait for system updates and apps to finish installing
+    5. reboot the system
+    6. run connectDomain.ps1 with command: .\connectDomain.ps1
+
+Overview of what it does for Desktop
+    ComputerSetup.ps1:
+        Windows update - run updates in the background 
+        Set system name
+        Activates local Admin account with password of ipsFL540!0
+        opens all installers in toInstall folder
+        change the DNS settings :
+            10.10.10.10
+            10.10.10.11 
+        opens all installers in DesktopToInstall folder
+    
+    connectDomain.ps1:
+        Connect to domain "ips.local"- prompts for Domain Admin
+        Auto-restart computer after connecting to the domain
+
+---LABTOP--------------------------------------------------------------------------------------------------------------------
+
+Instructions for Laptop(work from home) setup:
+    1. Open Powershell as Admin
+    2. Run this command to enable powershell scripts: 
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+    3. Navigate to usb and run ComputerSetup.ps1 with command: .\ComputerSetup.ps1
+    4. Wait for system updates and apps to finish installing
+    5. reboot the system
+
+Overview of what it does for Labtop
+    ComputerSetup.ps1:
+        Windows update - run updates in the background 
+        Set system name
+        Activates local Admin account with password of ipsFL540!0
+        opens all installers in toInstall folder
+        opens all installers in LabtopToInstall folder
